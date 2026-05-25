@@ -327,6 +327,7 @@ function linkIcon(label = "") {
 
 function renderPublications() {
   const container = document.querySelector("[data-publications]");
+  if (!container) return;
   const publications =
     state.activeFilter === "all"
       ? state.publications
@@ -364,6 +365,7 @@ function renderPublications() {
 
 function renderNews(markdown) {
   const container = document.querySelector("[data-news]");
+  if (!container) return;
   container.innerHTML = parseNews(markdown)
     .map(
       (item) => `
@@ -378,6 +380,7 @@ function renderNews(markdown) {
 
 function renderGallery(markdown) {
   const container = document.querySelector("[data-gallery]");
+  if (!container) return;
   state.galleryItems = parseGallery(markdown);
   state.galleryIndex = 0;
 
@@ -499,31 +502,35 @@ function renderSiteConfig(config) {
   });
 
   const photo = document.querySelector("[data-profile-photo]");
-  if (config.photo) photo.src = versionedAsset(config.photo, config.assetVersion);
-  if (config.name) photo.alt = `${config.name} portrait`;
+  if (photo && config.photo) photo.src = versionedAsset(config.photo, config.assetVersion);
+  if (photo && config.name) photo.alt = `${config.name} portrait`;
 
   const linksContainer = document.querySelector("[data-site-links]");
-  linksContainer.innerHTML = (config.links || [])
-    .map(
-      (link) => `
-        <a class="icon-button" href="${escapeHtml(normalizeHref(link.url, link.label))}" aria-label="${escapeHtml(link.label)}" title="${escapeHtml(link.label)}">
-          ${linkIcon(link.label)}
-        </a>
-      `,
-    )
-    .join("");
+  if (linksContainer) {
+    linksContainer.innerHTML = (config.links || [])
+      .map(
+        (link) => `
+          <a class="icon-button" href="${escapeHtml(normalizeHref(link.url, link.label))}" aria-label="${escapeHtml(link.label)}" title="${escapeHtml(link.label)}">
+            ${linkIcon(link.label)}
+          </a>
+        `,
+      )
+      .join("");
+  }
 
   const contactContainer = document.querySelector("[data-contact]");
-  contactContainer.innerHTML = (config.contact || [])
-    .map(
-      (item) => `
-        <div class="contact-row">
-          <span class="contact-label">${escapeHtml(item.label)}</span>
-          <span>${item.url ? `<a href="${escapeHtml(item.url)}">${escapeHtml(item.value)}</a>` : escapeHtml(item.value)}</span>
-        </div>
-      `,
-    )
-    .join("");
+  if (contactContainer) {
+    contactContainer.innerHTML = (config.contact || [])
+      .map(
+        (item) => `
+          <div class="contact-row">
+            <span class="contact-label">${escapeHtml(item.label)}</span>
+            <span>${item.url ? `<a href="${escapeHtml(item.url)}">${escapeHtml(item.value)}</a>` : escapeHtml(item.value)}</span>
+          </div>
+        `,
+      )
+      .join("");
+  }
 }
 
 async function init() {
@@ -538,7 +545,8 @@ async function init() {
   ]);
 
   renderSiteConfig(config);
-  document.querySelector("[data-markdown]").innerHTML = markdownToHtml(profile);
+  const markdownContainer = document.querySelector("[data-markdown]");
+  if (markdownContainer) markdownContainer.innerHTML = markdownToHtml(profile);
   renderNews(news);
   state.publications = parseBibtex(bibtex);
   renderPublications();
