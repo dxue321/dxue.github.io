@@ -1,0 +1,35 @@
+{
+  "name": "Danna Xue",
+  "role": "Postdoc Researcher",
+  "tagline": "I study concise research area descriptions, with a focus on clear questions, careful methods, and useful systems.",
+  "photo": "assets/dxue.jpg",
+  "links": [
+    {
+      "label": "Email",
+      "url": "dxue@cvc.uab.cat"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com/citations?user=I34UZFIAAAAJ"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/dxue321"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/dxue100294"
+    }
+  ],
+  "contact": [
+    {
+      "label": "Email",
+      "value": "dxue@cvc.uab.cat",
+      "url": "mailto:dxue@cvc.uab.cat"
+    },
+    {
+      "label": "Location",
+      "value": "Computer Vision Center (CVC), Barcelona, Spain"
+    }
+  ]
+}

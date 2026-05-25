@@ -1,0 +1,3 @@
+- ![Conference moment :camera:](assets/gallery/conference-placeholder.svg)
+- ![Research demo](assets/gallery/demo-placeholder.svg)
+- ![Campus](assets/gallery/campus-placeholder.svg)

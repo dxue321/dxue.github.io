@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Academic Homepage</title>
+    <meta
+      name="description"
+      content="Personal academic homepage with biography, news, and publications."
+    />
+    <link rel="icon" type="image/png" href="assets/icon.png" />
+    <link rel="apple-touch-icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260525-gallery-caption" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" data-site-name>Academic Homepage</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <!-- <a href="#gallery">Gallery</a> -->
+        <a href="assets/pdf/Resume_dxue.pdf">CV</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+          Dark
+        </button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-site-role>Researcher</p>
+          <h1 id="hero-title" data-site-name>Academic Homepage</h1>
+          <div class="hero-bio prose" data-markdown="content/profile.md"></div>
+          <div class="hero-contact" data-contact></div>
+          <div class="actions" data-site-links></div>
+        </div>
+        <figure class="portrait">
+          <img data-profile-photo src="assets/dxue.jpg" alt="Profile portrait" />
+        </figure>
+      </section>
+
+      <section id="news" class="section" aria-labelledby="news-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Updates</p>
+            <h2 id="news-title">News</h2>
+          </div>
+        </div>
+        <div class="news-list" data-news="content/news.md"></div>
+      </section>
+
+      <section id="publications" class="section" aria-labelledby="publications-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Research</p>
+            <h2 id="publications-title">Publications</h2>
+          </div>
+          <div class="publication-controls" aria-label="Publication filters">
+            <button class="filter is-active" type="button" data-filter="all">All</button>
+            <button class="filter" type="button" data-filter="article">Journals</button>
+            <button class="filter" type="button" data-filter="inproceedings">Conferences</button>
+            <button class="filter" type="button" data-filter="preprint">Preprints</button>
+          </div>
+        </div>
+        <div class="publication-list" data-publications="content/publications.bib"></div>
+      </section>
+
+      <!-- <section id="gallery" class="section" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Images</p>
+            <h2 id="gallery-title">Gallery</h2>
+          </div>
+        </div>
+        <div class="gallery-carousel" data-gallery="content/gallery.md"></div>
+      </section> -->
+
+    </main>
+
+    <footer class="site-footer">
+      <span data-site-name>Academic Homepage</span>
+      <span>Content powered by Markdown and BibTeX.</span>
+    </footer>
+
+    <script src="scripts/main.js?v=20260525-gallery2b"></script>
+  </body>
+</html>
