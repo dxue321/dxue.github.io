@@ -154,6 +154,10 @@ h1 {
   font-weight: 500;
 }
 
+#hero-title {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+}
+
 h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.8rem, 3vw, 2.55rem);

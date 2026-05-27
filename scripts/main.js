@@ -271,7 +271,6 @@ function publicationLinks(publication) {
     ["Video", publication.video],
     ["Demo", publication.demo],
     ["Supplement", publication.supplement || publication.supp],
-    ["DOI", publication.doi ? `https://doi.org/${publication.doi}` : ""],
     ["Link", publication.url],
   ];
   const seen = new Set();
